@@ -3,6 +3,13 @@ import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
+interface JournalEntry {
+  _id: string;
+  title: string;
+  slug: string;
+  date: string;
+}
+
 const JournalContainer = styled.div`
   padding: 4rem;
   min-height: calc(100vh - 60px);
@@ -22,7 +29,7 @@ const JournalTitle = styled.h2`
 `;
 
 const NotebookBackground = styled.div`
-  background-image: url("/Notebook.png"); // Path to your notebook image
+  background-image: url('/Notebook.png'); // Path to your notebook image
   background-size: cover;
   background-repeat: repeat-y;
   padding: 2rem;
@@ -87,8 +94,8 @@ const Bubble = styled.div<FloatingProps>`
   animation: ${float} ${props => props.duration}s linear infinite;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
-  left: <span class="math-inline">\{props \=\> props\.x\}%;
-bottom\: \-</span>{props => props.size}px;
+  left: ${props => props.x}%;
+  bottom: -${props => props.size}px;
   z-index: -1;
 `;
 
@@ -100,13 +107,13 @@ const Cloud = styled.div<FloatingProps>`
   animation: ${float} ${props => props.duration}s linear infinite;
   width: ${props => props.size}px;
   height: ${props => props.size * 0.75}px;
-  left: <span class="math-inline">\{props \=\> props\.x\}%;
-bottom\: \-</span>{props => props.size * 0.75}px;
+  left: ${props => props.x}%;
+  bottom: -${props => props.size * 0.75}px;
   z-index: -1;
 `;
 
 const Journal = () => {
-  const [journalEntries, setJournalEntries] = useState<any[]>([]);
+  const [journalEntries, setJournalEntries] = useState<JournalEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -159,7 +166,7 @@ const Journal = () => {
       <JournalTitle>My Journal</JournalTitle>
       <NotebookBackground>
         <EntryList>
-          {journalEntries?.map((entry: any) => (
+          {journalEntries?.map((entry) => (
             <EntryItem key={entry._id}>
               <EntryLink href={`/journal/${entry.slug}`}>
                 {entry.title}

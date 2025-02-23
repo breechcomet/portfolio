@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 
 const Hero = styled.section`
   position: relative;
@@ -126,30 +126,39 @@ const TypingText = styled.span`
 const Home = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const thumbnailBarRef = useRef<HTMLDivElement>(null);
-  const [currentText, setCurrentText] = useState("Graphic Designer");
-  const skills = ["Graphic Designer", "Front End Developer", "Marketing Specialist", "IT Specialist", "Data Analyst"];
+  const [currentText, setCurrentText] = useState('Graphic Designer');
+  const skills = useMemo(
+    () => [
+      'Graphic Designer',
+      'Front End Developer',
+      'Marketing Specialist',
+      'IT Specialist',
+      'Data Analyst',
+    ],
+    []
+  );
   const [index, setIndex] = useState(0);
 
   const carouselImages = [
-    { path: "/carousel1.png", alt: "Carousel Image 1" },
-    { path: "/carousel2.png", alt: "Carousel Image 2" },
-    { path: "/carousel3.png", alt: "Carousel Image 3" },
-    { path: "/carousel4.png", alt: "Carousel Image 4" },
-    { path: "/carousel5.png", alt: "Carousel Image 5" },
-    { path: "/carousel6.png", alt: "Carousel Image 6" },
-    { path: "/carousel7.png", alt: "Carousel Image 7" },
-    { path: "/carousel8.png", alt: "Carousel Image 8" },
-    { path: "/carousel9.png", alt: "Carousel Image 9" },
-    { path: "/carousel10.png", alt: "Carousel Image 10" },
-    { path: "/carousel11.png", alt: "Carousel Image 11" },
-    { path: "/carousel12.png", alt: "Carousel Image 12" },
-    { path: "/carousel13.png", alt: "Carousel Image 13" },
-    { path: "/carousel14.png", alt: "Carousel Image 14" },
-    { path: "/carousel15.png", alt: "Carousel Image 15" },
-    { path: "/carousel16.png", alt: "Carousel Image 16" },
-    { path: "/carousel17.png", alt: "Carousel Image 17" },
-    { path: "/carousel18.png", alt: "Carousel Image 18" },
-    { path: "/carousel19.png", alt: "Carousel Image 19" },
+    { path: '/carousel1.png', alt: 'Carousel Image 1' },
+    { path: '/carousel2.png', alt: 'Carousel Image 2' },
+    { path: '/carousel3.png', alt: 'Carousel Image 3' },
+    { path: '/carousel4.png', alt: 'Carousel Image 4' },
+    { path: '/carousel5.png', alt: 'Carousel Image 5' },
+    { path: '/carousel6.png', alt: 'Carousel Image 6' },
+    { path: '/carousel7.png', alt: 'Carousel Image 7' },
+    { path: '/carousel8.png', alt: 'Carousel Image 8' },
+    { path: '/carousel9.png', alt: 'Carousel Image 9' },
+    { path: '/carousel10.png', alt: 'Carousel Image 10' },
+    { path: '/carousel11.png', alt: 'Carousel Image 11' },
+    { path: '/carousel12.png', alt: 'Carousel Image 12' },
+    { path: '/carousel13.png', alt: 'Carousel Image 13' },
+    { path: '/carousel14.png', alt: 'Carousel Image 14' },
+    { path: '/carousel15.png', alt: 'Carousel Image 15' },
+    { path: '/carousel16.png', alt: 'Carousel Image 16' },
+    { path: '/carousel17.png', alt: 'Carousel Image 17' },
+    { path: '/carousel18.png', alt: 'Carousel Image 18' },
+    { path: '/carousel19.png', alt: 'Carousel Image 19' },
   ];
 
   useEffect(() => {
@@ -165,9 +174,7 @@ const Home = () => {
   }, [skills]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
       if (thumbnailBarRef.current) {
         const nextScrollPosition = scrollPosition + 100;
 
@@ -201,7 +208,7 @@ const Home = () => {
       </HeroContent>
 
       <ThumbnailBarContainer>
-        <ThumbnailBarTitle>This Week's Picks</ThumbnailBarTitle>
+        <ThumbnailBarTitle>This Week&apos;s Picks</ThumbnailBarTitle>
         <ThumbnailBar ref={thumbnailBarRef}>
           {carouselImages.map((image, idx) => (
             <Thumbnail key={idx}>

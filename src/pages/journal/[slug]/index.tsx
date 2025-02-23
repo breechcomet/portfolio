@@ -3,6 +3,13 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
+interface JournalEntryData {
+  title: string;
+  date: string;
+  content: string;
+  images: string[];
+}
+
 const EntryContainer = styled.div`
   padding: 4rem;
   min-height: calc(100vh - 60px);
@@ -39,27 +46,33 @@ const EntryContent = styled.div`
     display: block;
     margin: 1rem auto;
   }
-  h1, h2, h3, h4, h5, h6 {
-      text-align: center;
-      margin-bottom: 1rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
+    margin-bottom: 1rem;
   }
-  ul, ol {
-      padding-left: 20px;
-      margin-bottom: 1rem;
+  ul,
+  ol {
+    padding-left: 20px;
+    margin-bottom: 1rem;
   }
   blockquote {
-      border-left: 5px solid #d3cbb6;
-      padding: 1rem;
-      margin: 1rem 0;
-      font-style: italic;
-      background-color: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(5px);
-      border-radius: 8px;
+    border-left: 5px solid #d3cbb6;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
   }
 `;
 
 const NotebookBackground = styled.div`
-  background-image: url("/Notebook.png");
+  background-image: url('/Notebook.png');
   background-size: cover;
   background-repeat: repeat-y;
   padding: 2rem;
@@ -71,26 +84,25 @@ const NotebookBackground = styled.div`
 `;
 
 const ImageGallery = styled.div`
-    display: flex;
-    flex-wrap: wrap; // Allow images to wrap
-    justify-content: center; // Center the images horizontally
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const GalleryImage = styled.img`
-    max-width: 300px;  // Adjust max width as needed
-    height: auto;
-    margin: 0.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Add a subtle shadow
+  max-width: 300px;
+  height: auto;
+  margin: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
-
 
 const JournalEntry = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [entry, setEntry] = useState<any | null>(null);
+  const [entry, setEntry] = useState<JournalEntryData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<any | null>(null);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchEntry = async () => {
@@ -105,8 +117,12 @@ const JournalEntry = () => {
         const data = await res.json();
         setEntry(data);
       } catch (err) {
-        setError(err);
-        console.error("Error fetching entry:", err);
+        if (err instanceof Error) {
+          setError(err);
+        } else {
+          setError(new Error('An unknown error occurred.'));
+        }
+        console.error('Error fetching entry:', err);
       } finally {
         setLoading(false);
       }
@@ -131,20 +147,19 @@ const JournalEntry = () => {
 
   return (
     <EntryContainer>
-        <NotebookBackground>
-            <EntryTitle>{entry.title}</EntryTitle>
-            <EntryDate>{formattedDate}</EntryDate>
-            <EntryContent dangerouslySetInnerHTML={{ __html: entry.content }} />
+      <NotebookBackground>
+        <EntryTitle>{entry.title}</EntryTitle>
+        <EntryDate>{formattedDate}</EntryDate>
+        <EntryContent dangerouslySetInnerHTML={{ __html: entry.content }} />
 
-            {/* Display Images */}
-            {entry.images && entry.images.length > 0 && (
-                <ImageGallery>
-                    {entry.images.map((imageUrl, index) => (
-                        <GalleryImage key={index} src={imageUrl} alt={`Journal Image ${index + 1}`} />
-                    ))}
-                </ImageGallery>
-            )}
-        </NotebookBackground>
+        {entry.images && entry.images.length > 0 && (
+          <ImageGallery>
+            {entry.images.map((imageUrl, index) => (
+              <GalleryImage key={index} src={imageUrl} alt={`Journal Image ${index + 1}`} />
+            ))}
+          </ImageGallery>
+        )}
+      </NotebookBackground>
     </EntryContainer>
   );
 };

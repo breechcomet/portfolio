@@ -8,8 +8,8 @@ const AboutContainer = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 60px);
-  background-color: #f5f0e6; 
-  color: #5c3a21; 
+  background-color: #f5f0e6;
+  color: #5c3a21;
 `;
 
 const AboutContent = styled.div`
@@ -37,7 +37,7 @@ const AboutText = styled.p`
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  text-align: center; 
+  text-align: center;
 `;
 
 const ToolkitList = styled.ul`
@@ -50,8 +50,8 @@ const ToolkitList = styled.ul`
 `;
 
 const ToolkitItem = styled.li`
-  background-color: #5c3a21; 
-  color: #f5f0e6; 
+  background-color: #5c3a21;
+  color: #f5f0e6;
   padding: 0.5rem 1rem;
   margin: 0.5rem;
   border-radius: 5px;
@@ -72,8 +72,8 @@ const Interest = styled.div`
   margin: 0.5rem;
   border-radius: 8px;
   text-align: center;
-  flex: 1 0 0; 
-  min-width: 150px; 
+  flex: 1 0 0;
+  min-width: 150px;
 `;
 
 const InterestIcon = styled.span`
@@ -102,44 +102,43 @@ const About = () => {
     <AboutContainer>
       <ProfileImage src="/Munashe-Avatar.jpg" alt="My Profile" width={200} height={200} />
       <AboutContent>
-
         <AboutSection>
           <AboutTitle>About Me</AboutTitle>
           <AboutText>
-            I'm a multi-skilled young creator with a passion for building innovative and user-friendly experiences for customers. My expertise spans across design, development, marketing, and IT. I love turning ideas into reality and constantly seek new challenges and opportunities to learn and grow.
+            I&apos;m a multi-skilled young creator with a passion for building innovative and user-friendly experiences for customers. My expertise spans across design, development, marketing, and IT. I love turning ideas into reality and constantly seek new challenges and opportunities to learn and grow.
           </AboutText>
         </AboutSection>
 
         <AboutSection>
-            <AboutTitle>My Toolkit</AboutTitle>
-            <ToolkitList>
-                <ToolkitItem>Canva</ToolkitItem>
-                <ToolkitItem>Figma</ToolkitItem>
-                <ToolkitItem>Adobe Creative Suite</ToolkitItem>
-                <ToolkitItem>Blender</ToolkitItem>
-                <ToolkitItem>HTML</ToolkitItem>
-                <ToolkitItem>CSS</ToolkitItem>
-                <ToolkitItem>Python</ToolkitItem>
-                <ToolkitItem>SQL</ToolkitItem>
-                <ToolkitItem>Next.js 'Recently Started'</ToolkitItem>
-                <ToolkitItem>Microsoft Office Suite</ToolkitItem>
-                <ToolkitItem>Microsoft Dynamics 365</ToolkitItem>
-                <ToolkitItem>Microsoft Power BI</ToolkitItem>
-            </ToolkitList>
+          <AboutTitle>My Toolkit</AboutTitle>
+          <ToolkitList>
+            <ToolkitItem>Canva</ToolkitItem>
+            <ToolkitItem>Figma</ToolkitItem>
+            <ToolkitItem>Adobe Creative Suite</ToolkitItem>
+            <ToolkitItem>Blender</ToolkitItem>
+            <ToolkitItem>HTML</ToolkitItem>
+            <ToolkitItem>CSS</ToolkitItem>
+            <ToolkitItem>Python</ToolkitItem>
+            <ToolkitItem>SQL</ToolkitItem>
+            <ToolkitItem>Next.js &apos;Recently Started&apos;</ToolkitItem>
+            <ToolkitItem>Microsoft Office Suite</ToolkitItem>
+            <ToolkitItem>Microsoft Dynamics 365</ToolkitItem>
+            <ToolkitItem>Microsoft Power BI</ToolkitItem>
+          </ToolkitList>
         </AboutSection>
 
         <AboutSection>
-            <AboutTitle>Design Thinking</AboutTitle>
-            <AboutText>
-                My design and or development process is iterative and customer-centered.  I typically follow these steps:
-                <DesignProcessSteps>
-                    <DesignProcessStep>Research and draw inspiration</DesignProcessStep>
-                    <DesignProcessStep>Brainstorm ways I can differentiate my work</DesignProcessStep>
-                    <DesignProcessStep>Create wireframes, drafts and or prototypes.</DesignProcessStep>
-                    <DesignProcessStep>Develop high-fidelity templates.</DesignProcessStep>
-                    <DesignProcessStep>Test, iterate and present the final product or design based on the template.</DesignProcessStep>
-                </DesignProcessSteps>
-            </AboutText>
+          <AboutTitle>Design Thinking</AboutTitle>
+          <AboutText>
+            My design and or development process is iterative and customer-centered. I typically follow these steps:
+            <DesignProcessSteps>
+              <DesignProcessStep>Research and draw inspiration</DesignProcessStep>
+              <DesignProcessStep>Brainstorm ways I can differentiate my work</DesignProcessStep>
+              <DesignProcessStep>Create wireframes, drafts and or prototypes.</DesignProcessStep>
+              <DesignProcessStep>Develop high-fidelity templates.</DesignProcessStep>
+              <DesignProcessStep>Test, iterate and present the final product or design based on the template.</DesignProcessStep>
+            </DesignProcessSteps>
+          </AboutText>
         </AboutSection>
 
         <AboutSection>
@@ -168,7 +167,7 @@ const About = () => {
           <AboutTitle>My Favorite Jam</AboutTitle>
           <SpotifyEmbed>
             <iframe
-              src="https://open.spotify.com/embed/track/0nIbnc1VbJKgX0r4Yi3xVM?utm_source=generator" 
+              src="https://open.spotify.com/embed/track/0nIbnc1VbJKgX0r4Yi3xVM?utm_source=generator"
               width="100%"
               height="152"
               allowFullScreen
@@ -178,7 +177,6 @@ const About = () => {
             ></iframe>
           </SpotifyEmbed>
         </AboutSection>
-
       </AboutContent>
     </AboutContainer>
   );
