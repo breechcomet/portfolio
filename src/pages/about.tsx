@@ -116,8 +116,15 @@ const About = () => {
                 <ToolkitItem>Canva</ToolkitItem>
                 <ToolkitItem>Figma</ToolkitItem>
                 <ToolkitItem>Adobe Creative Suite</ToolkitItem>
+                <ToolkitItem>Blender</ToolkitItem>
                 <ToolkitItem>HTML</ToolkitItem>
                 <ToolkitItem>CSS</ToolkitItem>
+                <ToolkitItem>Python</ToolkitItem>
+                <ToolkitItem>SQL</ToolkitItem>
+                <ToolkitItem>Next.js 'Recently Started'</ToolkitItem>
+                <ToolkitItem>Microsoft Office Suite</ToolkitItem>
+                <ToolkitItem>Microsoft Dynamics 365</ToolkitItem>
+                <ToolkitItem>Microsoft Power BI</ToolkitItem>
             </ToolkitList>
         </AboutSection>
 
@@ -140,15 +147,15 @@ const About = () => {
           <InterestsContainer>
             <Interest>
               <InterestIcon>🎨</InterestIcon>
-              Graphic Design
+              Graphic Design & Marketing
             </Interest>
             <Interest>
               <InterestIcon>💻</InterestIcon>
-              Web Development
+              Software Development
             </Interest>
             <Interest>
               <InterestIcon>📈</InterestIcon>
-              Marketing
+              Data Analysis
             </Interest>
             <Interest>
               <InterestIcon>⚙️</InterestIcon>
