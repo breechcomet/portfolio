@@ -202,11 +202,18 @@ const Home = () => {
       </HeroContent>
 
       <ThumbnailBarContainer>
-        <ThumbnailBarTitle>This Week&apos;s Picks</ThumbnailBarTitle>
+        <ThumbnailBarTitle>This Week's Picks</ThumbnailBarTitle>
         <ThumbnailBar ref={thumbnailBarRef}>
           {carouselImages.map((image, idx) => (
             <Thumbnail key={idx}>
-              <Image src={image.path} alt={image.alt} width={100} height={100} objectFit="cover" />
+              <Image
+                src={image.path}
+                alt={image.alt}
+                width={100}
+                height={100}
+                objectFit="cover"
+                priority // Added priority to carousel images
+              />
             </Thumbnail>
           ))}
         </ThumbnailBar>
