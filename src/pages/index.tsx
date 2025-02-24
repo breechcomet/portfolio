@@ -134,25 +134,25 @@ const Home = () => {
   const [index, setIndex] = useState(0);
 
   const carouselImages = [
-    { path: 'https://i.ibb.co/yDp3V8s/Carousel1.png', alt: 'Carousel Image 1' },
-    { path: 'https://i.ibb.co/JJRQsrh/Carousel2.png', alt: 'Carousel Image 2' },
-    { path: 'https://i.ibb.co/LdpnQz3x/Carousel3.png', alt: 'Carousel Image 3' },
-    { path: 'https://i.ibb.co/5hbcW0GG/Carousel4.png', alt: 'Carousel Image 4' },
-    { path: 'https://i.ibb.co/27w0gm0F/Carousel5.png', alt: 'Carousel Image 5' },
-    { path: 'https://i.ibb.co/7xqnkrXH/Carousel6.png', alt: 'Carousel Image 6' },
-    { path: 'https://i.ibb.co/xqTQJQ13/Carousel7.png', alt: 'Carousel Image 7' },
-    { path: 'https://i.ibb.co/pB9PZcRL/Carousel8.png', alt: 'Carousel Image 8' },
-    { path: 'https://i.ibb.co/JFgXx192/Carousel9.png', alt: 'Carousel Image 9' },
-    { path: 'https://i.ibb.co/6Rng1qwh/Carousel10.png', alt: 'Carousel Image 10' },
-    { path: 'https://i.ibb.co/mrY0H0Wh/Carousel11.png', alt: 'Carousel Image 11' },
-    { path: 'https://i.ibb.co/hx6fc8nX/Carousel12.png', alt: 'Carousel Image 12' },
-    { path: 'https://i.ibb.co/vxGFX94G/Carousel13.png', alt: 'Carousel Image 13' },
-    { path: 'https://i.ibb.co/r2L1W5JT/Carousel14.png', alt: 'Carousel Image 14' },
-    { path: 'https://i.ibb.co/TBZ6m2d4/Carousel15.png', alt: 'Carousel Image 15' },
-    { path: 'https://i.ibb.co/279SzZwb/Carousel16.png', alt: 'Carousel Image 16' },
-    { path: 'https://i.ibb.co/xqTQJQ13/Carousel7.png', alt: 'Carousel Image 17' },
-    { path: 'https://i.ibb.co/TDWVfcGB/Carousel18.png', alt: 'Carousel Image 18' },
-    { path: 'https://i.ibb.co/KcFCz7GP/Carousel19.png', alt: 'Carousel Image 19' },
+    { path: '/carousel1.png', alt: 'Carousel Image 1' },
+    { path: '/carousel2.png', alt: 'Carousel Image 2' },
+    { path: '/carousel3.png', alt: 'Carousel Image 3' },
+    { path: '/carousel4.png', alt: 'Carousel Image 4' },
+    { path: '/carousel5.png', alt: 'Carousel Image 5' },
+    { path: '/carousel6.png', alt: 'Carousel Image 6' },
+    { path: '/carousel7.png', alt: 'Carousel Image 7' },
+    { path: '/carousel8.png', alt: 'Carousel Image 8' },
+    { path: '/carousel9.png', alt: 'Carousel Image 9' },
+    { path: '/carousel10.png', alt: 'Carousel Image 10' },
+    { path: '/carousel11.png', alt: 'Carousel Image 11' },
+    { path: '/carousel12.png', alt: 'Carousel Image 12' },
+    { path: '/carousel13.png', alt: 'Carousel Image 13' },
+    { path: '/carousel14.png', alt: 'Carousel Image 14' },
+    { path: '/carousel15.png', alt: 'Carousel Image 15' },
+    { path: '/carousel16.png', alt: 'Carousel Image 16' },
+    { path: '/carousel17.png', alt: 'Carousel Image 17' },
+    { path: '/carousel18.png', alt: 'Carousel Image 18' },
+    { path: '/carousel19.png', alt: 'Carousel Image 19' },
   ];
 
   useEffect(() => {
@@ -202,11 +202,18 @@ const Home = () => {
       </HeroContent>
 
       <ThumbnailBarContainer>
-        <ThumbnailBarTitle>This Week&apos;s Picks</ThumbnailBarTitle>
+        <ThumbnailBarTitle>This Week's Picks</ThumbnailBarTitle>
         <ThumbnailBar ref={thumbnailBarRef}>
           {carouselImages.map((image, idx) => (
             <Thumbnail key={idx}>
-              <Image src={image.path} alt={image.alt} width={100} height={100} objectFit="cover" />
+              <Image
+                src={image.path}
+                alt={image.alt}
+                width={100}
+                height={100}
+                objectFit="cover"
+                priority // Added priority to carousel images
+              />
             </Thumbnail>
           ))}
         </ThumbnailBar>
