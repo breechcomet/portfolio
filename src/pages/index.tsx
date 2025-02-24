@@ -93,12 +93,6 @@ const Thumbnail = styled.div`
     opacity: 0.7;
     transform: scale(1.1);
   }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `;
 
 const TypingContainer = styled.div`
@@ -212,7 +206,7 @@ const Home = () => {
         <ThumbnailBar ref={thumbnailBarRef}>
           {carouselImages.map((image, idx) => (
             <Thumbnail key={idx}>
-              <img src={image.path} alt={image.alt} />
+              <Image src={image.path} alt={image.alt} width={100} height={100} objectFit="cover" />
             </Thumbnail>
           ))}
         </ThumbnailBar>

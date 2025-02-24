@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 import 'react-quill-new/dist/quill.snow.css';
+import Image from 'next/image';
 
 const CreateContainer = styled.div`
   padding: 2rem;
@@ -75,7 +76,9 @@ const ImageUpload = ({ onImageUpload }: { onImageUpload: (urls: string[]) => voi
     <div>
       <input type="file" multiple onChange={handleFileChange} />
       {previewURLs.map((url, index) => (
-        <img key={index} src={url} alt="Preview" style={{ maxWidth: '200px', margin: '0.5rem' }} />
+        <div key={index} style={{ maxWidth: '200px', margin: '0.5rem' }}>
+          <Image src={url} alt="Preview" width={200} height={150} style={{width:'100%', height:'auto'}}/>
+        </div>
       ))}
       <button onClick={handleUpload}>Upload</button>
     </div>
