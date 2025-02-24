@@ -140,25 +140,15 @@ const Home = () => {
   const [index, setIndex] = useState(0);
 
   const carouselImages = [
-    { path: '/Carousel1.png', alt: 'Carousel Image 1' },
-    { path: '/Carousel2.png', alt: 'Carousel Image 2' },
-    { path: '/Carousel3.png', alt: 'Carousel Image 3' },
-    { path: '/Carousel4.png', alt: 'Carousel Image 4' },
-    { path: '/Carousel5.png', alt: 'Carousel Image 5' },
     { path: '/Carousel6.png', alt: 'Carousel Image 6' },
-    { path: '/Carousel7.png', alt: 'Carousel Image 7' },
-    { path: '/Carousel8.png', alt: 'Carousel Image 8' },
     { path: '/Carousel9.png', alt: 'Carousel Image 9' },
     { path: '/Carousel10.png', alt: 'Carousel Image 10' },
     { path: '/Carousel11.png', alt: 'Carousel Image 11' },
     { path: '/Carousel12.png', alt: 'Carousel Image 12' },
     { path: '/Carousel13.png', alt: 'Carousel Image 13' },
-    { path: '/Carousel14.png', alt: 'Carousel Image 14' },
-    { path: '/Carousel15.png', alt: 'Carousel Image 15' },
     { path: '/Carousel16.png', alt: 'Carousel Image 16' },
     { path: '/Carousel17.png', alt: 'Carousel Image 17' },
     { path: '/Carousel18.png', alt: 'Carousel Image 18' },
-    { path: '/Carousel19.png', alt: 'Carousel Image 19' },
   ];
 
   useEffect(() => {
